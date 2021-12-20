@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Drag & Drop</title>
+	<link rel="stylesheet" href="">
+	<script>
+		function allowdrop(event) {
+			event.preventDefault();
+		}
+		function dragStart(event){
+			 event.dataTransfer.setData ("text", event.target.id);
+		}
+		function dragDrop(event){
+			event.preventDefault();
+			var data = event.dataTransfer.getData("text")
+			event.target.appendChild(document.getElementById(data));
+		}
+		 
+	</script>
+	<style type="text/css" media="screen">
+		#container{
+			margin: auto;
+			border: 2px solid red;
+			height: 15%;
+			width:30%;
+		}	
+		#rect1{
+			background-color: pink;
+			width:50px;
+			height: 50px;
+			
+			margin:5px;
+		}
+		#rect2{
+			background-color: cyan;
+			width: 100px;
+			height:100px;
+			margin: 5px;
+		}
+		.div1 { 
+                width: 240px; 
+                height: 75px; 
+                padding: 10px; 
+                border: 1px solid black; 
+                background-color: #F5F5F5; 
+        } 
+        .gfg { 
+                font-size:40px; 
+                color:#009900; 
+                font-weight:bold; 
+        } 
+	</style>
+    
+</head>
+<body>
+	<p>Drag and drop of boxes</p> 
+    <div id="container">
+    	<div id="rect1" draggable="true" ondragstart="dragStart(event)"></div>
+    	<div id="rect2" ondragover="allowdrop(event)" ondrop="dragDrop(event)"></div>
+    </div>
+
+       <div class = "gfg">GeeksforGeeks</div> 
+         <p>Image Drag and Drop in boxes</p> 
+        <div class="div1" ondrop="dragDrop(event)" ondragover="allowDrop(event)"> 
+        <img id="drag1" 
+        src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/Geek_logi_-low_res.png" draggable="true"
+        ondragstart="dragStart(event)" width="220" height="70"></div> 
+        <br> 
+        <div class="div1" ondrop="dragDrop(event)" ondragover="allowDrop(event)"></div> 
+
+        
+<marquee bgcolor="#cccccc" loop="-1"
+scrollamount="2" width="100%"> 
+Example Marquee</marquee> 
+
+</body>
+</html> 
