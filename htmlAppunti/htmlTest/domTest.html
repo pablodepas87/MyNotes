@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		dom Test
+	</title>
+	<link rel="stylesheet" href="">
+</head>
+<body id="body">
+	<p id="firstParagraph">Dom Test console.log</p>
+	<button id ="btn" onclick="printElement()">click to change text color and btn width </button>
+	<button id ="btn1" onclick="testDomGetNamedItem()">click to test dom getNamedItem </button>
+	<button id ="btn2" onclick="changeElement()">click to test dom getNamedItem </button>
+	<p id="par"></p>
+	<script type="text/javascript">
+	   function printElement(argument) {
+	   		// se questo codice non viene scritto in una function viene eseguito appena viene caricata la pagina
+	   		var element = document.getElementById('firstParagraph')
+	   		var btnElement = document.getElementById('btn')
+	   		btnElement.style.width = "50%"
+	   		element.style.color = "red"
+			console.log(element)
+			
+	   	}	
+
+	   	function testDomGetNamedItem(){
+	   		var element = document.getElementsByTagName("button")[0]
+	   		var item = element.attributes.getNamedItem("onclick").value; 
+	   	    document.getElementById("par").innerHTML = item		
+     	}
+		
+		function changeElement() { 
+            var gfg = document.getElementById("body"); 
+            // posso anch andare a prendere un elemento con i suoi figli non per forza body
+            gfg.getElementsByTagName("P")[1].innerHTML =  
+                             "Welcome to GeeksforGeeks!"; 
+        } 
+        
+         function geeksFunction() {  
+                  
+                var node_list = document.body.childNodes; 
+                var elements = ""; 
+                var i; 
+                for (i = 0; i < node_list.length; i++) { 
+                    elements = elements + node_list[i].nodeName 
+                    + "    "; 
+                } 
+                  
+                elements = elements + "<br> Length: "  
+                + document.body.childNodes.length; 
+                document.getElementById("demo").innerHTML = elements; 
+            } 
+	</script>
+</body>
+</html>
