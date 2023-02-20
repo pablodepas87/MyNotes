@@ -147,4 +147,77 @@ Vale la pena notare che il termine "pacchetto" può, in generale, avere signific
 
 Un altro punto degno di nota è che storicamente all'interno del progetto Yocto, le ricette venivano chiamate pacchetti, quindi l'esistenza di diverse variabili BitBake che apparentemente hanno nomi errati (ad esempio PR , PV e PE ) .
 
+##### Gruppi di pacchetti
 
+Gruppi arbitrari di software Ricette. I gruppi di pacchetti vengono utilizzati per contenere le ricette che,  una volta create, di solito eseguono una singola attività. Ad esempio, un gruppo di pacchetti potrebbe contenere le ricette per il software proprietario o a  valore aggiunto di un'azienda. Oppure, il gruppo di pacchetti potrebbe contenere le ricette che abilitano la grafica. Un gruppo di pacchetti è in realtà solo un'altra ricetta. Poiché i file del gruppo di pacchetti sono ricette, terminano con l' estensione  `.bb`
+
+##### Poky
+
+Poky, che si pronuncia *Pock* -ee, è una distribuzione embedded di riferimento e una configurazione di test di riferimento. Poky fornisce quanto segue:
+
+- Una distribuzione funzionale di livello base utilizzata per illustrare come personalizzare una distribuzione.
+- Un mezzo con cui testare i componenti del Progetto Yocto (cioè Poky viene utilizzato per convalidare il Progetto Yocto).
+- Un veicolo attraverso il quale è possibile scaricare Yocto Project.
+
+Poky non è una distribuzione a livello di prodotto. Piuttosto, è un buon punto di partenza per la personalizzazione.
+
+Nota
+
+Poky nasce come progetto open source inizialmente sviluppato da OpenedHand. OpenedHand ha sviluppato Poky dal sistema di compilazione OpenEmbedded esistente  per creare un sistema di compilazione commercialmente supportato per  Linux embedded. Dopo che  Intel Corporation ha acquisito OpenedHand, il progetto poky è diventato  la base per il sistema di compilazione del progetto Yocto
+
+#####  Ricetta
+
+Una serie di istruzioni per la creazione di pacchetti. Una ricetta descrive dove si ottiene il codice sorgente, quali patch  applicare, come configurare il sorgente, come compilarlo e così via. Le ricette descrivono anche le dipendenze per le librerie o per altre ricette. Le ricette rappresentano l'unità logica di esecuzione, il software da costruire, le immagini da costruire e usano l'estensione `.bb`
+
+##### Reference Kit
+
+Un esempio funzionante di un sistema, che include un [BSP](https://docs-yoctoproject-org.translate.goog/current/ref-manual/terms.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#term-Board-Support-Package-BSP) , un [host di compilazione](https://docs-yoctoproject-org.translate.goog/current/ref-manual/terms.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#term-Build-Host) e altri componenti, in grado di funzionare su hardware specifico.
+
+##### SBOM
+
+Questo termine indica *la Distinta dei materiali del software* . Quando distribuisci il software, offre una descrizione di tutti i componenti  che hai utilizzato, le relative licenze, le loro dipendenze, le  modifiche apportate e le vulnerabilità note che sono state corrette.
+
+OpenEmbedded Build System può generare tale documentazione per il tuo progetto, in formato [SPDX](https://docs-yoctoproject-org.translate.goog/current/ref-manual/terms.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#term-SPDX) , sulla base di tutti i metadati utilizzati per creare le immagini del software. Vedere la sezione " [Creazione di una distinta base software](https://docs-yoctoproject-org.translate.goog/current/dev-manual/common-tasks.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#creating-a-software-bill-of-materials) " del manuale Attività di sviluppo.
+
+##### Source Directory
+
+Questo termine si riferisce alla struttura della directory creata come risultato della creazione di una copia locale del `poky`repository Git `git://git.yoctoproject.org/poky` o dell'espansione di un `poky` tarball rilasciato.
+
+**Nota:** La creazione di una copia locale del poky repository Git è il metodo consigliato per impostare la tua directory di origine.
+
+A volte potresti sentire il termine "poky directory" usato per fare riferimento a questa struttura di directory.
+
+**Nota:** Il sistema di compilazione OpenEmbedded non supporta nomi di file o directory che contengono spazi. Assicurati che la directory di origine che utilizzi non contenga questi tipi di nomi.
+
+Quando crei una copia locale del repository Git, puoi nominare il repository come preferisci. In gran parte della documentazione, "poky" è usato come nome della  cartella di primo livello della copia locale del poky repository Git. Quindi, ad esempio, la clonazione del `poky`repository Git si traduce in un repository Git locale la cui cartella di primo livello è anche denominata "poky".
+
+È importante comprendere le differenze tra la directory dei sorgenti  creata decomprimendo un tarball rilasciato rispetto alla clonazione `git://git.yoctoproject.org/poky`. Quando decomprimi un tarball, hai una copia esatta dei file in base all'ora del rilascio: un punto di rilascio fisso. Tutte le modifiche apportate ai file locali nella directory di origine sono in cima alla versione e rimarranno solo locali. D'altra parte, quando si clona il `poky`repository Git, si dispone di un repository di sviluppo attivo con accesso ai rami e ai tag del repository upstream. In questo caso, qualsiasi modifica locale apportata alla directory di  origine locale può essere successivamente applicata ai rami di sviluppo  attivi del `poky`repository Git upstream.
+
+##### SPDX
+
+Questo termine significa *Software Package Data Exchange* e viene utilizzato come standard aperto per fornire una *distinta base software* ( [SBOM](https://docs-yoctoproject-org.translate.goog/current/ref-manual/terms.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#term-SBOM) ). Questo standard è sviluppato attraverso un [progetto della Linux Foundation](https://translate.google.com/website?sl=auto&tl=it&hl=it&client=webapp&u=https://spdx.dev/) ed è utilizzato dall'OpenEmbedded Build System per fornire una [SBOM](https://docs-yoctoproject-org.translate.goog/current/ref-manual/terms.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#term-SBOM) associata a ciascuna immagine software.
+
+[Per i dettagli, vedere la pagina SPDX](https://translate.google.com/website?sl=auto&tl=it&hl=it&client=webapp&u=https://en.wikipedia.org/wiki/Software_Package_Data_Exchange) di Wikipedia e la sezione " [Creazione di una distinta base software](https://docs-yoctoproject-org.translate.goog/current/dev-manual/common-tasks.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#creating-a-software-bill-of-materials) " del manuale Attività di sviluppo.
+
+##### Sysroot
+
+Durante la compilazione incrociata, il file system di destinazione può essere  strutturato in modo diverso e contenere cose diverse rispetto al sistema host. Il concetto di *sysroot* è una directory che assomiglia al filesystem di destinazione e può essere utilizzata per la compilazione incrociata.
+
+Nel contesto delle toolchain di compilazione incrociata, una *sysroot* in genere contiene la libreria C e le intestazioni del kernel, oltre ai binari compilati per la libreria C. Una *toolchain multilib* può contenere più varianti dei binari della libreria C, ciascuno compilato per un set di istruzioni di destinazione (come `armv5`, `armv7`e `armv8`) e possibilmente ottimizzato per uno specifico core della CPU.
+
+Nel contesto più specifico dell'OpenEmbedded build System e dello Yocto Project, ogni ricetta ha due sysroot:
+
+- Una *sysroot di destinazione* contiene tutte le librerie e le intestazioni **di destinazione necessarie per creare la ricetta.**
+- Una *sysroot nativa* contiene tutti i file **host** e gli eseguibili necessari per costruire la ricetta.
+
+##### Task
+
+Un'unità di esecuzione per ricetta per BitBake (ad esempio [do_compile](https://docs-yoctoproject-org.translate.goog/current/ref-manual/tasks.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#ref-tasks-compile) , [do_fetch](https://docs-yoctoproject-org.translate.goog/current/ref-manual/tasks.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#ref-tasks-fetch) , [do_patch](https://docs-yoctoproject-org.translate.goog/current/ref-manual/tasks.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#ref-tasks-patch) e così via). Uno dei principali vantaggi del sistema di compilazione è che, poiché ogni  ricetta genererà in genere l'esecuzione di numerose attività, è del  tutto possibile che molte attività possano essere eseguite in parallelo, attività da ricette separate o attività indipendenti all'interno della  stessa ricetta, potenzialmente fino al parallelismo del tuo sistema di  compilazione.
+
+##### Toaster
+
+Un'interfaccia web per l' [OpenEmbedded Build System](https://docs-yoctoproject-org.translate.goog/current/ref-manual/terms.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#term-OpenEmbedded-Build-System) del progetto Yocto . L'interfaccia ti consente di configurare ed eseguire le tue build. Le informazioni sulle build vengono raccolte e archiviate in un database. Per informazioni sul toaster, vedere il [manuale dell'utente di Toaster](https://docs-yoctoproject-org.translate.goog/current/toaster-manual/index.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp) .
+
+##### Upstream
+
+Un riferimento al codice sorgente o ai repository che non sono locali nel  sistema di sviluppo ma che si trovano in un'area remota controllata dal  manutentore del codice sorgente. 
