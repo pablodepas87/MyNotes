@@ -1,4 +1,4 @@
-# Costruzione rapida del progetto Yocto
+ Costruzione rapida del progetto Yocto
 
 Questo breve documento ti guida attraverso il processo per una tipica creazione di immagini utilizzando il progetto Yocto. Il documento introduce anche come configurare una build per hardware specifico. Utilizzerai Yocto Project per creare un sistema operativo embedded di riferimento chiamato Poky.
 
@@ -8,7 +8,7 @@ Questo breve documento ti guida attraverso il processo per una tipica creazione 
 
 - **Se la macchina su cui desideri utilizzare Yocto Project** per creare un'immagine ( Build Host ) **non è un sistema Linux nativo**, puoi comunque eseguire questi passaggi **utilizzando CROss PlatformS (CROPS)** e impostando un contenitore Poky. Per ulteriori informazioni, vedere la sezione Configurazione per l'utilizzo delle piattaforme CROss (CROPS) nel Manuale delle attività di sviluppo del progetto Yocto
 
-- **Puoi usare la versione 2 del sottosistema Windows per Linux (WSL 2)** per configurare un host di compilazione usando Windows 10 o versioni successive o versioni successive. Per ulteriori informazioni, vedere la sezione Configurazione per l'utilizzo del sottosistema Windows per Linux (WSL 2) nel Manuale delle attività di sviluppo del progetto Yocto.
+- **Puoi usare la versione 2 del sottosistema Windows per Linux (WSL 2)** per configurare un host di compilazione usando Windows 10 o versioni successive. Per ulteriori informazioni, vedere la sezione Configurazione per l'utilizzo del sottosistema Windows per Linux (WSL 2) nel Manuale delle attività di sviluppo del progetto Yocto.
 
 
 ## REQUISITI HOST di Build
@@ -45,7 +45,7 @@ Dopo aver completato le istruzioni di installazione per la tua macchina, devi ot
     Resolving deltas: 100% (323116/323116), done.
     Checking connectivity... done.
 
-Quindi spostati nella pokydirectory e dai un'occhiata ai rami esistenti:
+Quindi spostati nella directory poky e dai un'occhiata ai rami esistenti:
 
     $ cd poky
     $ git branch -a
@@ -130,7 +130,7 @@ Per utilizzare tali mirror, decommentare le righe seguenti nel conf/local.conffi
 
     $ bitbake core-image-sato
 
-Per informazioni sull'utilizzo del bitbakecomando, vedere la sezione [BitBake](https://docs-yoctoproject-org.translate.goog/current/overview-manual/concepts.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#bitbake) nel Manuale dei concetti e della panoramica del progetto Yocto, oppure vedere Il [comando BitBake nel Manuale dell'utente di BitBake](https://docs-yoctoproject-org.translate.goog/bitbake/2.2/bitbake-user-manual/bitbake-user-manual-intro.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#the-bitbake-command).   
+Per informazioni sull'utilizzo del comando bitbake, vedere la sezione [BitBake](https://docs-yoctoproject-org.translate.goog/current/overview-manual/concepts.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#bitbake) nel Manuale dei concetti e della panoramica del progetto Yocto, oppure consultare il  [comando BitBake nel Manuale dell'utente di BitBake](https://docs-yoctoproject-org.translate.goog/bitbake/2.2/bitbake-user-manual/bitbake-user-manual-intro.html?_x_tr_sl=auto&_x_tr_tl=it&_x_tr_hl=it&_x_tr_pto=wapp#the-bitbake-command).   
 
 4.**Simula la tua immagine usando QEMU:* una volta creata questa particolare immagine, puoi avviare QEMU, che è un Quick EMUlator fornito con il progetto Yocto:
 
