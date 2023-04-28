@@ -1,5 +1,5 @@
 # C++ ARRAY
-Definito nell'intestazione<array>
+Definito nell'intestazione array
 
 std::array è un contenitore che incapsula array di dimensioni fisse.
 
@@ -42,16 +42,16 @@ sovrascrive ogni elemento dell'array con l'elemento corrispondente di un altro a
 (funzione membro pubblica)
 
 ### Accesso agli elementi
-at  (C++11) accedere all'elemento specificato con controllo dei limiti
-(funzione membro pubblica)
-operatore[] (C++11) accedere all'elemento specificato
-(funzione membro pubblica) 
-front (C++11) accedere al primo elemento
-(funzione membro pubblico)
-back (C++11) accedere all'ultimo elemento
-(funzione membro pubblico)
-data (C++11) accesso diretto all'array sottostante
-(funzione membro pubblica)
+- **at(C++11)** accedere all'elemento specificato con controllo dei limiti
+
+- **operatore[]** (C++11) accedere all'elemento specificato
+ 
+- **front (C++11)** accedere al primo elemento
+
+- **back (C++11)** accedere all'ultimo elemento
+
+- **data (C++11)** accesso diretto all'array sottostante
+
 
 ### Iteratori
 begin / cbegin (C++11) restituisce un iteratore all'inizio
