@@ -73,3 +73,13 @@ To delete a remote branch, we do not use the "git branch" command - but instead 
     git push origin --delete feature/login 
     or 
     git push origin -d feature/login
+
+### UPDATE LOCAL BRANCH WITH REMOTE BRANCH CHANGES
+
+When we have a branch with its remote branch often we need to update and sync the local branch with remote branch, if a member team has pushed some features , bugs fixes ecc.
+To made it we can use the command **pull**, the command will made a download of each branch change and our local branch will be synchronized with remote branch.
+
+    git pull
+
+
+
