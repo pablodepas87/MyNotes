@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\tutorial_CMake.dir/objects.a
+D:\Qt\Tools\mingw810_64\bin\ar.exe cr CMakeFiles\tutorial_CMake.dir/objects.a @CMakeFiles\tutorial_CMake.dir\objects1.rsp
+D:\Qt\Tools\mingw810_64\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\tutorial_CMake.dir/objects.a -Wl,--no-whole-archive  -o tutorial_CMake.exe -Wl,--out-implib,libtutorial_CMake.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\tutorial_CMake.dir\linklibs.rsp

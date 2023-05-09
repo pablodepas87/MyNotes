@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/rappi/Desktop/MyNotes/CMake/TestExample/main.cpp
+iostream
+-
+stdlib.h
+-
+tutorial_CMake.h
+C:/Users/rappi/Desktop/MyNotes/CMake/TestExample/tutorial_CMake.h
+
+C:/Users/rappi/Desktop/MyNotes/CMake/TestExample/tutorial_CMake.h
+

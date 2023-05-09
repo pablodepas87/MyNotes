@@ -1,0 +1,3 @@
+// the configured options and settings for Tutorial
+#define tutorial_CMake_VERSION_MAJOR @tutorial_CMake_VERSION_MAJOR@
+#define tutorial_CMake_VERSION_MINOR @tutorial_CMake_VERSION_MINOR@

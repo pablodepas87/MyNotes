@@ -1,0 +1,7 @@
+[
+{
+  "directory": "C:/Users/rappi/Desktop/MyNotes/CMake/TestExample/build",
+  "command": "D:\\Qt\\Tools\\mingw810_64\\bin\\g++.exe   @CMakeFiles/tutorial_CMake.dir/includes_CXX.rsp -g   -std=gnu++11 -o CMakeFiles\\tutorial_CMake.dir\\main.cpp.obj -c C:\\Users\\rappi\\Desktop\\MyNotes\\CMake\\TestExample\\main.cpp",
+  "file": "C:/Users/rappi/Desktop/MyNotes/CMake/TestExample/main.cpp"
+}
+]
