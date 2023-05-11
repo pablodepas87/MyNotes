@@ -1,5 +1,11 @@
 # Git Command List 
 
+#### INIT A NEW LOCAL REPOSITORY
+The first time if we want to use git is...crete the repository...so to made it we have to use the **init** after we open the terminal into the directory where will be the repository.
+
+    git init
+
+    
 #### CLONE REMOTE REPOSITORY
 To clone a remote repository into a current dir we have three methods http, ssh and cli. The command ever is made with **git clone** followed by repo link.
 
@@ -74,12 +80,29 @@ To delete a remote branch, we do not use the "git branch" command - but instead 
     or 
     git push origin -d feature/login
 
-### UPDATE LOCAL BRANCH WITH REMOTE BRANCH CHANGES
+#### UPDATE LOCAL BRANCH WITH REMOTE BRANCH CHANGES
 
 When we have a branch with its remote branch often we need to update and sync the local branch with remote branch, if a member team has pushed some features , bugs fixes ecc.
 To made it we can use the command **pull**, the command will made a download of each branch change and our local branch will be synchronized with remote branch.
 
     git pull
+
+#### WHO HAS MADE IT?...SHOW WHO HAS MADE A CHANGE INTO FILE CODE ROW BY ROW
+
+if we want to know who has made a change into a file row by row. We can use the command **blame** follow by file name
+
+    git blame /path/of/myfile_name
+
+the command after his execution will print all row of the file and for each of this the :
+
+- commit ID that has made the change
+- the author of the commit
+- the date of the commit
+- the number of the row
+- the content of the row
+
+
+
 
 
 
