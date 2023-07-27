@@ -24,6 +24,30 @@ Clone by ssh is possible executing the follow command line:
     gh repo clone corobsoftware/repo-corob
 
 
+#### CREATE NEW BRANCH
+
+To create a new branch in Git, you can use the following command:
+
+    git branch <branch-name>
+
+replace <branch-name> with desidered name for your new branch. For example if we want to create a branch
+called "feature-branch" you would run:
+
+     git branch feature-branch
+
+This command creates a new branch with the specified name but does not switch to it. The new branch will have the same history
+as the current branch.
+
+If you want to switch to the newly created branch , use the command **git checkout** followed by the branch name:
+
+    git checkout feature-branch
+
+Alternatively, we can combine the creation and checkout of the new branch in a sigle command using **-b** flag
+
+  git checkout -b feature-branch
+
+This command creates the branch and immediately switches to it 
+
 #### SHOW ALL BRANCH LIST (REMOTE AND LOCAL)
 
 To show the list of all branch of the repository , remote and local , we have to execute the follow command line:
