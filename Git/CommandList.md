@@ -125,8 +125,52 @@ the command after his execution will print all row of the file and for each of t
 - the number of the row
 - the content of the row
 
+#### Git Status Command , how to show current state of repository
 
+The `git status` command is a fundamental feature of Git that provides an overview of the current state of your repository. When you run
+    
+    `git status`
 
+Git will display information about:
 
+- **Modified Files:** Files that have been modified but not yet staged for commit.
+- **Staged Files:** Files that have been modified and staged for commit.
+- **Untracked Files:** Files that are present in your working directory but have not yet been added to the Git repository.
+- **Branch Information:** Information about the current branch and its relationship with the remote branch (if any).
+- **Changes Ready to be Committed:** Summary of changes that are staged and ready to be committed.
+- **Changes Not Staged for Commit:** Summary of changes that are modified but not staged for commit.
+- **Untracked Files:** List of files in your working directory that are not being tracked by Git.
 
+The `git status` command is useful for understanding the state of your repository, determining which files have been modified or staged, and deciding which changes to commit. It helps you keep track of your work and manage the version control process effectively.
 
+#### Git Add Command
+
+The `git add` command is used to stage changes for committing in Git. When you make modifications to files in your working directory, Git requires you to explicitly tell it which changes you want to include in the next commit. This is where the `git add` command comes into play.
+
+###### Basic Usage:
+
+To stage changes for commit using `git add`, you simply specify the files you want to stage. You can add individual files, multiple files, or even entire directories. Here are some common use cases:
+
+- To stage a specific file:
+  
+    git add filename
+    
+- To stage all modified files:*/
+
+    git add . 
+
+- To stage specific files or directories:
+  
+    git add file1 file2 directory/
+
+###### Staging Changes:
+
+When you run `git add`, Git will add the specified files to the staging area, also known as the index. This means that the changes in those files are now ready to be included in the next commit. However, they are not committed yet; they are simply marked as "to be committed".
+
+###### Committing Changes:
+
+After using `git add` to stage your changes, you need to commit them to make them part of the repository's history. You can do this by running the `git commit` command, which will create a new commit containing the staged changes.
+
+###### Summary:
+
+In summary, the `git add` command is used to stage changes for committing in Git. It allows you to select which modifications you want to include in the next commit, providing a granular level of control over your version control workflow.

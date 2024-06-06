@@ -1,0 +1,25 @@
+.btn{
+    background-color: #4CAF50;
+    color: rgb(28, 174, 231);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.paragrafo {
+    font-size: 20px;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.paragrafo2{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.h1_red{
+    color: red;
+}
+.h1_yellow{
+    color: yellow;
+}
