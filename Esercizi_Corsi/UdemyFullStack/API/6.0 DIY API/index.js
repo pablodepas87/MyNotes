@@ -69,8 +69,29 @@ app.patch("/jokes/:id", (request,response) => {
 })
 
 //7. DELETE Specific joke
-
+app.delete("/jokes/:id", (request,response) => {
+  const id = parseInt(requet.params.id);
+  const jokeIndex = jokes.findIndex((joke) => joke.id === id);
+  if(jokeIndex > -1) {
+    jokes.splice(jokeIndex, 1);
+    response.sendStatus(200);
+  } else {
+    response.status(404)
+    .json({error: `Joke with id ${id} not found.No jokes were deleted.`});
+  }
+})
 //8. DELETE All jokes
+app.delete("/jokes", (request,response) => {
+  const userKey = request.query.userKey
+  if(userKey === masterKey) {
+    jokes = [];
+    response.sendStatus(200);
+  }else {
+    response
+      .status(404)
+      .json({error: "You are not authorized to delete all jokes."})
+  }
+})
 
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
