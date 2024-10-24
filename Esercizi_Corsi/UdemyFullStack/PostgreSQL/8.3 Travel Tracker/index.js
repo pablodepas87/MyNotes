@@ -48,20 +48,61 @@ app.get("/", async (req, res) => {
 
 });
 
-add.post("/add", async(req,res) => {
-  // raccolgo il valore del campo country dalla richiesta
-  const country = req.body["country"];
-  // eseguo una query per selezionare tutti i paesi visitati con lo stesso country_code
-  const result = await db.query('SELECT * FROM visited_countries WHERE country_code = $1', [country])
-  // se il risultato della query ha una lunghezza maggiore di 0, reindirizzo alla home , è possibile che il paese sia già stato inserito
-  if(result.rows.length > 0) {
+app.post("/add", async(req,res) => {
+  const input = req.body["country"];
+
+  /* // solution 2
+  const result = await db.query(
+    "SELECT country_code FROM countries WHERE country_name = $1",
+    [input]
+  );
+
+  if (result.rows.length !== 0) {
+    const data = result.rows[0];
+    const countryCode = data.country_code;
+
+    await db.query("INSERT INTO visited_countries (country_code) VALUES ($1)", [
+      countryCode,
+    ]);
     res.redirect("/");
-    return;
-  }
-  // altrimenti eseguo una query per inserire il paese nella tabella visited_countries
-  const query = `INSERT INTO visited_countries (country_code) VALUES ($1)`;
-  await db.query(query,[country]);
-  res.redirect("/");
+  }*/
+
+  // solution 3 
+  try {
+    const result = await db.query(
+      "SELECT country_code FROM visited_countries WHERE country_code = $1",
+      [input]
+    );
+
+    const data = result.rows[0];
+    const countryCode = data.country_code;
+
+    try {
+      await db.query(
+        "INSERT INTO visited_countries (country_code) VALUES ($1)",
+        [countryCode]
+      );
+      res.redirect("/");
+    }catch(err) {
+      console.log(err)
+      const countries = await checkVisitedCountries();
+      res.render("index.ejs", {
+        countries: countries,
+        total: countries.length,
+        error: "Country has already been added, try again."
+      })
+    }
+
+  } catch (err) {
+    console.log(err);
+    const countries = await checkVisitedCountries();
+    res.render("index.ejs", {
+      countries: countries,
+      total: countries.length,
+      error: "Country name does not exist, try again."
+    })
+  } 
+
 })
 
 app.listen(port, () => {
